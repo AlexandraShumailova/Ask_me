@@ -1,0 +1,28 @@
+{% load static %}
+
+<div class="answer-container row question">
+        <div class="col-4">
+            <div class="user-image">
+                <img src="{% static answer.author.avatar %}" alt="Profile Picture" class="img-fluid user-image" style="width: 130px; border: 1px solid white;">
+            </div>
+            <div class="likes-count">
+                {% include "components/likes-count.html" with rating=rating %}
+            </div>
+        </div>
+        <div class="col-8">
+            <div class="answer-text">
+                <span class="correct-label">{{ answer.content }}</span>
+            </div>
+            <div class="correct-answer">
+                {% if answer.correct %}
+                    <input type="checkbox" checked disabled>
+                    <span class="correct-label">Correct!</span>
+                {% else %}
+                    <input type="checkbox" disabled>
+                    <span class="correct-label">Not Correct!</span>
+                {% endif %}
+
+            </div>
+        </div>
+  </div>
+  
